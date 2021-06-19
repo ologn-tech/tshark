@@ -1,5 +1,5 @@
 ./configure \
-	--host=aarch64 \
+	--host=${TOOLCHAIN} \
 	--target=${TOOLCHAIN} \
 	--build=${BUILD_SYS} \
 	--prefix=${PREFIX} \

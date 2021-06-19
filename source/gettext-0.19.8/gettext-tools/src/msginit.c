@@ -1081,7 +1081,11 @@ get_user_fullname ()
       char *result;
 
       /* Return the pw_gecos field, up to the first comma (if any).  */
+#ifndef __ANDROID__
       fullname = pwd->pw_gecos;
+#else
+      fullname = "android";
+#endif
       fullname_end = strchr (fullname, ',');
       if (fullname_end == NULL)
         fullname_end = fullname + strlen (fullname);

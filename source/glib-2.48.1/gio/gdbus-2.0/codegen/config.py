@@ -21,5 +21,5 @@
 
 DATADIR = "${prefix}/share"
 DATADIR = DATADIR.replace(
-    "${prefix}", "/home/hasanbulat/android64")
+    "${prefix}", "/home/qhuyduong/workspace/android/tools/tshark/android")
 VERSION = "2.48.1"

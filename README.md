@@ -1,4 +1,4 @@
-## How to compile tshark binary for arm64 architecture android devices
+## How to compile tshark binary for arm architecture android devices
    TShark is a network protocol analyzer. It lets you capture packet data from a live network, or read packets from a previously saved capture file, either printing a decoded form of those packets to the standard output or writing the packets to a file. TShark's native capture file format is pcap format.
 
 ### Clone this repository from github into your home directory
@@ -23,7 +23,7 @@
 #### Run "make-standalone-toolchain" script
 	$ cd ~/tshark
 	$ ./make-standalone-toolchain
-aarch64-linux-android-4.9 standalone toolchain will be install in tools/android64-ndk-toolchain directory
+arm-linux-android-4.9 standalone toolchain will be install in tools/android-ndk-toolchain directory
 
 ### Compile dependencies libraries
 #### Run these following command to setup environments variables
@@ -31,31 +31,31 @@ aarch64-linux-android-4.9 standalone toolchain will be install in tools/android6
 
 #### Compile libiconv
 	$ cd source/libiconv-1.15
-	$ ./configure --build=${BUILD_SYS} --host=aarch64 --prefix=${PREFIX} --disable-rpath
+	$ ./configure --build=${BUILD_SYS} --host=arm --prefix=${PREFIX} --disable-rpath
 	$ make
 	$ make install
 
 #### Compile libffi
 	$ cd ../libffi-3.2.1
-	$ ./configure --build=${BUILD_SYS} --host=aarch64 --prefix=${PREFIX} --enable-static
+	$ ./configure --build=${BUILD_SYS} --host=arm --prefix=${PREFIX} --enable-static
 	$ make
 	$ make install
 
 #### Compile gettext
 	$ cd ../gettext-0.19.8
-	$ ./configure --build=${BUILD_SYS} --host=aarch64  --prefix=${PREFIX} --disable-rpath --disable-libasprintf --disable-java --disable-native-java --disable-openmp --disable-curses
+	$ ./configure --build=${BUILD_SYS} --host=arm  --prefix=${PREFIX} --disable-rpath --disable-libasprintf --disable-java --disable-native-java --disable-openmp --disable-curses
 	$ make
 	$ make install
 
 #### Compile Glib
 	$ cd ../glib-2.48.1
-	$ ./configure --build=${BUILD_SYS} --host=aarch64 --prefix=${PREFIX} --disable-dependency-tracking --cache-file=android.cache --enable-included-printf --enable-static --with-pcre=no
+	$ ./configure --build=${BUILD_SYS} --host=arm --prefix=${PREFIX} --disable-dependency-tracking --cache-file=android.cache --enable-included-printf --enable-static --with-pcre=no
 	$ make
 	$ make install
 
 #### Compile libpcap
 	$ cd ../libpcap-1.8.1
-	$ ./configure --build=${BUILD_SYS} --host=aarch64 --prefix=${PREFIX} --with-pcap=linux
+	$ ./configure --build=${BUILD_SYS} --host=arm --prefix=${PREFIX} --with-pcap=linux
 	$ make
 	$ make install
 	
@@ -67,7 +67,7 @@ aarch64-linux-android-4.9 standalone toolchain will be install in tools/android6
 	$ ./conf-tshark
 	$ make
 	$ make install
-All binaries and libraries will be install in "~/android64" directory
+All binaries and libraries will be install in "./android" directory
 
 ### Testing
 Copy "tshark" and "dumpcap" binaries in wireshark-2.0.12 directory to "/data" directory on your android devices then using adb to access android shell (root access required on android devices)

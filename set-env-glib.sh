@@ -5,10 +5,10 @@
 # Version : 2.1
 
 # Android NDK sources and standalone toolchain is put here
-export DEV=${HOME}/tools
+export DEV=$PWD/tools
 
 # All the built binaries, libs and their header will be installed here
-export PREFIX=${HOME}/android64
+export PREFIX=$PWD/android
 
 # Don't mix up .pc files from your host and build target
 export PKG_CONFIG_PATH=${PREFIX}/lib/pkgconfig
@@ -21,24 +21,24 @@ export GCC_VER=4.9
 export BUILD_SYS=x86_64-linux-gnu
 
 # Set Android target API level
-export ANDROID_API=21
+export ANDROID_API=19
 
 # Set Android target arch
-export ANDROID_ARCH=arm64
+export ANDROID_ARCH=arm
 
 # Set Android target name, according to Table 2 in
 # https://developer.android.com/ndk/guides/standalone_toolchain.html
 # export ANDROID_TARGET=armv5te-none-linux-androideabi
 
 # The cross-compile toolchain we use
-export TOOLCHAIN=aarch64-linux-android
+export TOOLCHAIN=arm-linux-androideabi
 
 # This is a symlink pointing to the real Android NDK r10e
 export NDK=${DEV}/android-ndk
 
 # The path of standalone NDK toolchain
 # Refer to https://developer.android.com/ndk/guides/standalone_toolchain.html
-export NDK_TOOLCHAIN=${DEV}/android64-ndk-toolchain
+export NDK_TOOLCHAIN=${DEV}/android-ndk-toolchain
 
 # Set Android Sysroot according to API and arch
 export SYSROOT=${NDK_TOOLCHAIN}/sysroot
